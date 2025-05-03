@@ -23,11 +23,15 @@ pipeline {
             }
         }
 
-        stage('Run app.py') {
-            steps {
-                sh 'python3 app.py'
+        stage('Run Node App') {
+           steps {
+               sh '''
+                   npm install
+                   npm start
+               '''
             }
         }
+
 
         stage('Build Docker Image') {
             steps {
